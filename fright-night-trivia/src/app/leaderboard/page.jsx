@@ -27,22 +27,6 @@ export default function Home() {
     }
   }
 
-  async function fetchQuestions() {
-    try {
-      const response = await fetch('http://localhost:3001/quiz');
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-  
-      const data = await response.json();
-      setQuestions(data);
-      console.log('Fetched questions:', data);
-    } catch (error) {
-      console.error('Error fetching questions:', error);
-    }
-  }
-
   useEffect(() => {
     fetchData();
     fetchQuestions();
